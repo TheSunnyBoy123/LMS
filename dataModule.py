@@ -3,7 +3,31 @@ def ret_types():
     f = open("accountTypes.txt", "a")
     f.close()
     try:
-        f = open("accountTypes.txt")
+        f = open("accountTypes.txt", "r")
+        d = eval(f.read())
+        f.close()
+        return d
+    except SyntaxError:
+        f.close()
+        return {}
+
+def ret_studentSubs():
+    f = open("studentSubs.txt", "a")
+    f.close()
+    try:
+        f = open("studentSubs.txt", "r")
+        d = eval(f.read())
+        f.close()
+        return d
+    except SyntaxError:
+        f.close()
+        return {}
+
+def ret_teacherSubjects():
+    f = open("teacherSubjects.txt", "a")
+    f.close()
+    try:
+        f = open("teacherSubjects.txt", "r")
         d = eval(f.read())
         f.close()
         return d
