@@ -78,6 +78,8 @@ def registration():
             print("Please enter either 't' or 's'\n")
     login(username)
 
+''':type'''
+
 def teacherRegistration(username):
     if tableTimings == {}:
         print("The school has not set up the time table system used. We will need you to help us set it up.\n")
