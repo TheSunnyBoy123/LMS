@@ -4,7 +4,7 @@ import dataModule
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 # bring back data from previous session
 tableTimings = dataModule.ret_tableTimings()
-types = dataModule.ret_stypes()
+types = dataModule.ret_types()
 passwords = loginModule.ret_loadPasswords()  # stores passwords, startup loads passwords from prev session
 teacherSubjects = dataModule.ret_teacherSubjects()
 studentSubs = dataModule.ret_studentSubs()
@@ -29,15 +29,19 @@ teacherMarks = dataModule.ret_teacherMarks()
 
 
 def loginRegistration():
-    print("Enter your username or enter 'register' to register a new account\n")
+    print("Enter your username or enter 'register' to register a new account or 'exit' to exit\n")
     name = input()
     if name in passwords:
         login(name)
-    elif name == "registration\n":
+    elif name == "register":
         registration()
+    elif name == "exit":
+        program_exit()
     else:
         print(name, "is not a registered account\n")
-
+        loginRegistration()
+def program_exit():
+    return
 
 def login(username):
     print("Enter password for " + username + "\n")
@@ -47,7 +51,6 @@ def login(username):
             teacher()
         else:
             student()
-
 
 def registration():
     print("Enter the username you would like\n")
@@ -68,12 +71,12 @@ def registration():
         elif sort == "s":
             c = 5
             studentRegistration(username)
+
         elif sort == "q":
             c = 5
         else:
             print("Please enter either 't' or 's'\n")
     login(username)
-
 
 def teacherRegistration(username):
     if tableTimings == {}:
@@ -98,9 +101,14 @@ def studentRegistration(username):
     studentTasks[username] = {}
     studentClasses[username] = []
     studentTime[username] = {}
-    studentSubs[username] = {}
+    studentSubs[username] = []
     studentMarks[username] = {}
+    types[username] = "student"
     numSubs = int(input("Enter the number of subjects you have"))
+    for i in range(numSubs):
+        nameSub = input("Enter subject name")
+        studentMarks[username][nameSub] = []
+        studentSubs[username].append(nameSub)
     return None
 
 
@@ -118,9 +126,10 @@ def tableTimingsSetup():
 
 
 def student():
+    print("reached student hub")
 
 
 def teacher():
-    pass
+    print("reached teacher hub")
 
 loginRegistration()

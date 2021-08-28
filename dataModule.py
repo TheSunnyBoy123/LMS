@@ -1,4 +1,9 @@
 import pickle
+def dump_types(t):
+    with open("accountTypes.txt", "w") as f:
+        f.write(t)
+    return
+
 def ret_types():
     f = open("accountTypes.txt", "a")
     f.close()
@@ -10,6 +15,10 @@ def ret_types():
     except SyntaxError:
         f.close()
         return {}
+def dump_studentSubs(t):
+    with open("studentSubs.txt", "w") as f:
+        f.write(t)
+    return
 
 def ret_studentSubs():
     f = open("studentSubs.txt", "a")
@@ -22,7 +31,10 @@ def ret_studentSubs():
     except SyntaxError:
         f.close()
         return {}
-
+def dump_teacherSubjects(t):
+    with open("teacherSubjects.txt", "w") as f:
+        f.write(t)
+    return
 def ret_teacherSubjects():
     f = open("teacherSubjects.txt", "a")
     f.close()
@@ -72,7 +84,10 @@ def ret_studentNotes():
     except SyntaxError:
         f.close()
         return {}
-
+def dump_studentNotes(t):
+    with open("studentNotes.dat", "wb") as f:
+        f.write(t)
+    return
 
 def ret_teacherNotes():
     f = open("teacherNotes.dat", "ab")
@@ -86,6 +101,11 @@ def ret_teacherNotes():
         f.close()
         return {}
 
+def dump_teacherNotes(t):
+    with open("teacherNotes.dat", "wb") as f:
+        f.write(t)
+    return
+
 def ret_teacherQuickNotes():
     f = open("teacherQuickNotes.dat", "ab")
     f.close()
@@ -98,6 +118,10 @@ def ret_teacherQuickNotes():
         f.close()
         return {}
 
+def dump_teacherQuickNotes(t):
+    with open("teacherQuickNotes.dat", "wb") as f:
+        f.write(t)
+    return
 ##############
 #Time Table: stored as {studentName: {day: [classes], day: []}, studentName: {day:[]} or {teacher: {day: [classes], day: []}, teacher: {day:[]}
 ##############
@@ -112,6 +136,10 @@ def ret_studentTimeTable():
     except SyntaxError:
         f.close()
         return {}
+def dump_studentTimeTable(t):
+    with open("studentTimeTable.dat", "wb") as f:
+        f.write(t)
+    return
 
 def ret_teacherTimeTable():
     f = open("teacherTimeTable.dat", "ab")
@@ -124,6 +152,10 @@ def ret_teacherTimeTable():
     except SyntaxError:
         f.close()
         return {}
+def dump_teacherTimeTable(t):
+    with open("teacherTimeTable.dat", "wb") as f:
+        f.write(t)
+    return
 
 ##############
 #Tasks/Deadlines: stored as {Name:{task: (subject, deadline), task: (subject, deadline)}} for student and as {name:{task:(class, deadline)}} for teacher
@@ -140,6 +172,11 @@ def ret_studentTasks():
         f.close()
         return {}
 
+def dump_studentTasks(t):
+    with open("studentTasks.txt", "w") as f:
+        f.write(t)
+    return
+
 def ret_teacherTasks():
     f = open("teacherTasks.txt", "a")
     f.close()
@@ -151,6 +188,11 @@ def ret_teacherTasks():
     except SyntaxError:
         f.close()
         return {}
+
+def dump_teacherTasks(t):
+    with open("teacherTasks.txt", "w") as f:
+        f.write(t)
+    return
 
 ##############
 #Requests to be added to teacher's class: stored as {name:{teachername:className},...}
@@ -167,6 +209,11 @@ def ret_requests():
         f.close()
         return {}
 
+def dump_requests(t):
+    with open("requests.dat", "wb") as f:
+        f.write(t)
+    return
+
 ##############
 #Classes: stored as {name:{class:subject(from student)}} for student and {name:{class:[students]}} for teacher
 ##############
@@ -182,6 +229,11 @@ def ret_studentClasses():
         f.close()
         return {}
 
+def dump_studentClasses(t):
+    with open("studentClasses.txt", "w") as f:
+        f.write(t)
+    return
+
 def ret_teacherClasses():
     f = open("teacherClasses.txt", "a")
     f.close()
@@ -194,6 +246,10 @@ def ret_teacherClasses():
         f.close()
         return {}
 
+def dump_teacherClasses(t):
+    with open("teacherClasses.txt", "w") as f:
+        f.write(t)
+    return
 ##############
 #Marks: stored as {Name:{Subject:[(mark, outMarks),(Mark, outMarks)]}} for student and {teacherName: {class:{student:[(grade, out), (grade, out)]}}} for teacher
 ##############
@@ -210,6 +266,10 @@ def ret_studentMarks():
         f.close()
         return {}
 
+def dump_studentMarks(t):
+    with open("studentMarks.txt", "w") as f:
+        f.write(t)
+    return
 
 def ret_teacherMarks():
     f = open("teacherMarks.txt", "a")
@@ -224,7 +284,7 @@ def ret_teacherMarks():
         return {}
 
 
-def dump_studentMarks(d):
+def dump_teacherMarks(d):
     f = open("teacherMarks.txt", "w")
     f.write(str(d))
     f.close()
